@@ -22,7 +22,7 @@ jobs:
       - name: deploy
         uses: actions/upload-artifact@v4
         with: 
-          name: zCar操作手冊.zip
+          name: "{{ Lorem ipsum dolor }}文件.zip"
           path: book
           retention-days: 30
           
