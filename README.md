@@ -31,7 +31,11 @@ C:\{{專案資料夾}}> mdbook build
 
 ### By Github Actions
 
-本專案已經有撰寫好 github action，每次更新都會觸發。
+本專案已經有撰寫好 github action
+
+#### 自動編譯
+
+文件每次更新都會自動編譯。
 
 首先進去 **Actions** > **Build book to html files** 
 
@@ -47,4 +51,13 @@ C:\{{專案資料夾}}> mdbook build
 任務執行完成後，**Artifacts**會有編譯好的 HTML 網站打包成 .zip 壓縮檔。
 
 ![alt text](image-3.png)
+
+
+#### 手動執行 github action
+
+一樣進去 **Actions** > **Build book to html files** 
+
+然後選擇 `Run workflow 🔻` 按鈕，選擇`Run workflow`即可
+
+
 
