@@ -6,9 +6,13 @@
 
 使用 Markdown 來撰寫。
 
-## 文件目錄
+## 文件位置
 
-文件目錄放置於 [`src/SUMMARY.md`](./src/SUMMARY.md)
+文件的檔案位於 `src` 資料夾
+
+而整份文件的目錄則位於 [`src/SUMMARY.md`](./src/SUMMARY.md)
+
+整個專案採用 `mdbook` 的架構來撰寫，關於 mdbook 的說明可參閱[mdbook官方說明](https://rust-lang.github.io/mdBook/index.html)（[非官方的中文翻譯版](https://hellowac.github.io/mdbook-doc-zh/zh-cn/index.html)）
 
 ## 將文件轉為 HTML 網站
 
