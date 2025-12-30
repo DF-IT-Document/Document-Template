@@ -39,18 +39,18 @@ C:\{{專案資料夾}}> mdbook build
 
 首先進去 **Actions** > **Build book to html files** 
 
-![Actions](image.png)
+![Actions](template-resources/image.png)
 
-![Build book to html files](image-1.png)
+![Build book to html files](template-resources/image-1.png)
 
 選擇最新一次執行任務。
 
-![最新一次執行任務](image-2.png)
+![最新一次執行任務](template-resources/image-2.png)
 
 
 任務執行完成後，**Artifacts**會有編譯好的 HTML 網站打包成 .zip 壓縮檔。
 
-![alt text](image-3.png)
+![alt text](template-resources/image-3.png)
 
 
 #### 手動執行 github action
