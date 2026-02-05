@@ -62,8 +62,8 @@ jobs:
         with: 
           name: "{{ Lorem ipsum dolor }}文件 (pdf format)"
           path: book/pdf/*.pdf
-          retention-days: 1
-          retention-days: 1
+          retention-days: 1 
           
+
 
 
