@@ -1,4 +1,4 @@
-name: Build book to html files
+name: Build book 
 
 on:
   push:
@@ -7,6 +7,11 @@ on:
     paths:
       - "src/**"
   workflow_dispatch:
+    inputs:
+      buildPDF:
+        description: '是否編譯成 PDF'
+        type: boolean
+        default: true
 
 jobs:
   deploy:
@@ -18,14 +23,47 @@ jobs:
         uses: peaceiris/actions-mdbook@v2
         with:
           mdbook-version: 'latest'
+      
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: add lib of building PDF
+        run: cargo install --git https://github.com/HollowMan6/mdbook-pdf.git
+        if: inputs.buildPDF
+
+      - name: update book.toml
+        if: inputs.buildPDF
+        run: |
+          if [ "${{ inputs.buildPDF }}" == "true" ]; then
+            echo "" >> src/book.toml
+            echo "[output.pdf]" >> src/book.toml
+          fi 
 
       - run: mdbook build
       
-      - name: deploy
+      - run: |
+          if [ "${{ inputs.buildPDF }}" == "true" ]; then
+            echo "BUILD_PATH=book/html" >> $GITHUB_ENV
+          else
+            echo "BUILD_PATH=book" >> $GITHUB_ENV
+          fi
+
+      - name: deploy book
+        
         uses: actions/upload-artifact@v4
         with: 
-          name: "{{ Lorem ipsum dolor }}文件.zip"
-          path: book
+          name: "{{ Lorem ipsum dolor }}文件 (HTML format)"
+          path: ${{ env.BUILD_PATH }}
           retention-days: 1
           
+      - name: deploy pdf
+        uses: actions/upload-artifact@v4
+        with: 
+          name: "{{ Lorem ipsum dolor }}文件 (pdf format)"
+          path: book/pdf/*.pdf
+          retention-days: 1
+          retention-days: 1
+          
+
 
