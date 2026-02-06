@@ -36,8 +36,8 @@ jobs:
         if: inputs.buildPDF
         run: |
           if [ "${{ inputs.buildPDF }}" == "true" ]; then
-            echo "" >> src/book.toml
-            echo "[output.pdf]" >> src/book.toml
+            echo "" >> book.toml
+            echo "[output.pdf]" >> book.toml
           fi 
 
       - run: mdbook build
@@ -64,6 +64,7 @@ jobs:
           path: book/pdf/*.pdf
           retention-days: 1 
           
+
 
 
 
