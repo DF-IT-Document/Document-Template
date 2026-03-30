@@ -11,13 +11,13 @@ on:
       buildPDF:
         description: '是否編譯成 PDF'
         type: boolean
-        default: true
+        default: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v2
@@ -51,7 +51,7 @@ jobs:
 
       - name: deploy book
         
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with: 
           name: "{{ Lorem ipsum dolor }}文件 (HTML format)"
           path: ${{ env.BUILD_PATH }}
